@@ -1366,7 +1366,7 @@ const DOW_LABELS = ['MON', 'TUE', 'WED', 'THU', 'FRI', 'SAT', 'SUN'];
    PROGRAM — a 4, 8 or 12 week plan built from 4-week blocks
    (3 loading weeks + 1 deload). Day 1 is whatever date you pick.
    ========================================================= */
-const APP_VERSION = 'v3.0 · 2026-10-12';
+const APP_VERSION = 'v3.1 · 2026-11-19';
 const PROGRAM = {
   id: 'reset',
   // Day 1..7 of every program week. 'long' alternates ruck (odd weeks) / trail (even weeks).
@@ -1657,11 +1657,11 @@ const START_W = {
 
 // Nutrition reference
 const NUTRITION = {
-  cal: 2400,
-  protein: 180,
-  fat: 70,
-  carb: 260,
-  proteinPerLb: 0.92,
+  cal: 2150,
+  protein: 200,
+  fat: 65,
+  carb: 190,
+  proteinPerLb: 1.0,
   proteinFoods: [{
     food: 'Chicken breast',
     serving: '6 oz cooked',
@@ -1730,29 +1730,29 @@ const NUTRITION = {
   }],
   sampleDay: [{
     meal: 'Breakfast',
-    items: '3 eggs + 1 cup Greek yogurt + 1/2 cup berries + 1 tbsp peanut butter',
-    protein: 45,
-    cal: 540
+    items: '3 eggs + 1 cup nonfat Greek yogurt + 1/2 cup dry oats + 1/2 cup berries',
+    protein: 46,
+    cal: 530
   }, {
     meal: 'Lunch',
-    items: '6 oz chicken + 1 cup rice + 2 cups veggies + 1 tbsp olive oil',
-    protein: 55,
-    cal: 680
+    items: '6 oz chicken + 1.5 cups rice + 2 cups veggies + 1 tsp olive oil',
+    protein: 59,
+    cal: 690
   }, {
     meal: 'Snack',
     items: 'Whey shake + medium apple',
-    protein: 27,
+    protein: 26,
     cal: 220
   }, {
     meal: 'Dinner',
-    items: '6 oz lean beef + 1 medium sweet potato + salad + dressing',
-    protein: 50,
-    cal: 720
+    items: '6 oz lean beef (93/7) + 1 medium sweet potato + salad + light dressing',
+    protein: 49,
+    cal: 490
   }, {
     meal: 'Evening',
-    items: '1 cup cottage cheese + 1 oz almonds',
-    protein: 31,
-    cal: 350
+    items: '1 cup low-fat cottage cheese',
+    protein: 27,
+    cal: 180
   }],
   supplements: [{
     name: 'Creatine monohydrate',
@@ -1768,7 +1768,7 @@ const NUTRITION = {
     why: 'Most adults are deficient; testosterone, bone, immune'
   }, {
     name: 'Whey or casein protein',
-    dose: 'Hit 180g — supplement only if food short',
+    dose: 'Hit 200g — supplement only if food short',
     why: 'Convenience tool, not magic'
   }],
   antiPatterns: ['Alcohol — empty calories, kills recovery, lowers testosterone, sabotages sleep', 'Liquid calories (juice, soda, sweetened lattes) — most filling per calorie ratio in any food', '"Healthy" calorie bombs — granola, smoothies, nut butters straight from the jar, oils used liberally', 'Restaurant/takeout most days — portion sizes and cooking fats run double home cooking', 'Skipping protein at breakfast — sets up afternoon hunger and worse adherence', 'Cheat meals that turn into cheat days that turn into cheat weeks']
@@ -2555,7 +2555,7 @@ function ProgramTab({ program, workouts, schedule, onStart, onAddPause, onRemove
         'Short on time: pick MIN. It keeps the two lifts that matter and the week still counts.',
         'Missed a day: SWAP pushes it forward. Never double up to catch up.',
         'Lost a whole week (sick, travel, hunt): insert an off week below. The program slides back 7 days — you do not start over.',
-        'Bodyweight: −0.5 to −1 lb per week on the 14-day trend. Faster than that costs muscle.'
+        'Bodyweight: −1.2 to −1.4 lb per week on the 14-day trend. Under 1 lb/week: drop to 2,000 kcal. Over 2 lb/week: raise to 2,300 — that pace costs muscle.'
       ].map((t, i) => el('div', { key: i, className: 'ex-cue' }, t))),
 
     // Controls
@@ -4945,7 +4945,7 @@ function NutritionTargets() {
       color: 'var(--text)',
       lineHeight: 1.5
     }
-  }, "~2,400 cal puts you in a moderate deficit (~500/day) for ~1 lb/week loss without sabotaging recovery. Protein at 0.92 g/lb spares muscle during the cut. Fat floor at 70g for hormones. Carbs fill the rest and fuel training.")), /*#__PURE__*/React.createElement("div", {
+  }, "2,150 cal is a 600\u2013700/day deficit for 1.2\u20131.4 lb/week loss \u2014 about 0.7% of bodyweight, the fastest pace that held lean mass in trained athletes. This is what you eat, flat; do not add back exercise calories. Protein at 1 g/lb protects muscle in a deficit this size. Fat floor at 65g for hormones. Carbs fill the rest \u2014 put most of them before work blocks and around training.")), /*#__PURE__*/React.createElement("div", {
     className: "card",
     style: {
       marginTop: 10
